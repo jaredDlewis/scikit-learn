@@ -910,21 +910,21 @@ class ElasticNet(MultiOutputMixin, RegressorMixin, LinearModel):
             self.normalize, default=False, estimator_name=self.__class__.__name__
         )
         
-        # JARED comment this out so that an array of penalty parameters could be passed in
+        # JARED commented this out so that an array of penalty parameters could be passed in
         # check_scalar(
         #     self.alpha,
         #     "alpha",
         #     target_type=numbers.Real,
         #     min_val=0.0,
         # )
-
-        if self.alpha == 0:
-            warnings.warn(
-                "With alpha=0, this algorithm does not converge "
-                "well. You are advised to use the LinearRegression "
-                "estimator",
-                stacklevel=2,
-            )
+        # JARED commented this out so that an array of penalty parameters could be passed in
+        # if self.alpha == 0:
+        #     warnings.warn(
+        #         "With alpha=0, this algorithm does not converge "
+        #         "well. You are advised to use the LinearRegression "
+        #         "estimator",
+        #         stacklevel=2,
+        #     )
 
         if isinstance(self.precompute, str):
             raise ValueError(
