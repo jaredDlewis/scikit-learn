@@ -909,13 +909,14 @@ class ElasticNet(MultiOutputMixin, RegressorMixin, LinearModel):
         _normalize = _deprecate_normalize(
             self.normalize, default=False, estimator_name=self.__class__.__name__
         )
-
-        check_scalar(
-            self.alpha,
-            "alpha",
-            target_type=numbers.Real,
-            min_val=0.0,
-        )
+        
+        # JARED comment this out so that an array of penalty parameters could be passed in
+        # check_scalar(
+        #     self.alpha,
+        #     "alpha",
+        #     target_type=numbers.Real,
+        #     min_val=0.0,
+        # )
 
         if self.alpha == 0:
             warnings.warn(
